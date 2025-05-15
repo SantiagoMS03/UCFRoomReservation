@@ -8,13 +8,7 @@ interface AppContextType {
   reservations: Reservation[];
   selectedDate: string;
   setSelectedDate: (date: string) => void;
-  makeReservation: (
-    roomId: string,
-    timeSlotId: string,
-    date: string,
-    purpose: string,
-    attendees: number
-  ) => void;
+  makeReservation: (roomId: string, timeSlotId: string, date: string) => void;
   cancelReservation: (reservationId: string) => void;
   getAvailableTimeSlots: (roomId: string, date: string) => TimeSlot[];
 }
@@ -35,9 +29,7 @@ export const AppProvider: React.FC<{ children: ReactNode }> = ({
   const makeReservation = (
     roomId: string,
     timeSlotId: string,
-    date: string,
-    purpose: string,
-    attendees: number
+    date: string
   ) => {
     if (!user) return;
 
@@ -47,8 +39,6 @@ export const AppProvider: React.FC<{ children: ReactNode }> = ({
       userId: user.id,
       date,
       timeSlotId,
-      purpose,
-      attendees,
       createdAt: new Date().toISOString(),
     };
 

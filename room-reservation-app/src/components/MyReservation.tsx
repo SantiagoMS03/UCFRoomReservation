@@ -54,12 +54,6 @@ const MyReservations: React.FC = () => {
                   <strong>Time:</strong>{" "}
                   {getTimeSlotText(reservation.roomId, reservation.timeSlotId)}
                 </p>
-                <p>
-                  <strong>Purpose:</strong> {reservation.purpose}
-                </p>
-                <p>
-                  <strong>Attendees:</strong> {reservation.attendees} people
-                </p>
               </div>
               <div className="reservation-actions">
                 <button

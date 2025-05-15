@@ -63,7 +63,7 @@ import { Header } from "./components/Header";
 
 ### MyReservations
 
-Displays a user's existing reservations sorted by date. Each reservation card shows room name, date, time slot, purpose, and number of attendees. Users can cancel reservations from this view.
+Displays a user's existing reservations sorted by date. Each reservation card shows room name, date, and time slot. Users can cancel reservations from this view.
 
 ```tsx
 import { MyReservations } from "./components/MyReservations";

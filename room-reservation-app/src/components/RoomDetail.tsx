@@ -9,8 +9,6 @@ const RoomDetail: React.FC = () => {
   const { rooms, selectedDate, user, makeReservation } = useApp();
 
   const [selectedTimeSlot, setSelectedTimeSlot] = useState<string>("");
-  const [purpose, setPurpose] = useState<string>("");
-  const [attendees, setAttendees] = useState<number>(1);
   const [bookingComplete, setBookingComplete] = useState<boolean>(false);
 
   const room = rooms.find((r) => r.id === roomId);
@@ -25,17 +23,11 @@ const RoomDetail: React.FC = () => {
   const handleReservation = (e: React.FormEvent) => {
     e.preventDefault();
 
-    if (!selectedTimeSlot || !purpose || attendees < 1 || !user) {
+    if (!selectedTimeSlot || !user) {
       return;
     }
 
-    makeReservation(
-      room.id,
-      selectedTimeSlot,
-      selectedDate,
-      purpose,
-      attendees
-    );
+    makeReservation(room.id, selectedTimeSlot, selectedDate);
 
     setBookingComplete(true);
     setTimeout(() => {
@@ -72,7 +64,6 @@ const RoomDetail: React.FC = () => {
 
         <div className="room-info-detailed">
           <h1>{room.name}</h1>
-          <p className="capacity">Capacity: {room.capacity} people</p>
 
           <h3>Amenities</h3>
           <ul className="amenities-list">
@@ -85,7 +76,6 @@ const RoomDetail: React.FC = () => {
             <h2>Make a Reservation</h2>
             <form onSubmit={handleReservation}>
               <div className="form-group">
-                <label>Date</label>
                 <DatePicker />
               </div>
 
@@ -110,43 +100,10 @@ const RoomDetail: React.FC = () => {
                 )}
               </div>
 
-              <div className="form-group">
-                <label>Purpose</label>
-                <input
-                  type="text"
-                  value={purpose}
-                  onChange={(e) => setPurpose(e.target.value)}
-                  placeholder="Meeting purpose"
-                  required
-                />
-              </div>
-
-              <div className="form-group">
-                <label>Number of Attendees</label>
-                <input
-                  type="number"
-                  min="1"
-                  max={room.capacity}
-                  value={attendees}
-                  onChange={(e) => setAttendees(Number(e.target.value))}
-                  required
-                />
-                {attendees > room.capacity && (
-                  <p className="error">
-                    Exceeds room capacity of {room.capacity}
-                  </p>
-                )}
-              </div>
-
               <button
                 type="submit"
                 className="reserve-btn"
-                disabled={
-                  !selectedTimeSlot ||
-                  attendees > room.capacity ||
-                  attendees < 1 ||
-                  !purpose
-                }
+                disabled={!selectedTimeSlot}
               >
                 Reserve Room
               </button>

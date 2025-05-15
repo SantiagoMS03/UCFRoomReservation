@@ -1,7 +1,6 @@
 export interface Room {
   id: string;
   name: string;
-  capacity: number;
   amenities: string[];
   image?: string;
   availableTimes?: TimeSlot[];
@@ -20,8 +19,6 @@ export interface Reservation {
   userId: string;
   date: string;
   timeSlotId: string;
-  purpose: string;
-  attendees: number;
   createdAt: string;
 }
 

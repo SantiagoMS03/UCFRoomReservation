@@ -15,7 +15,6 @@ const RoomList: React.FC = () => {
 
   // Filter rooms based on criteria
   const filteredRooms = rooms.filter((room) => {
-    if (capacityFilter && room.capacity < capacityFilter) return false;
     if (amenityFilter && !room.amenities.includes(amenityFilter)) return false;
     return true;
   });
@@ -26,22 +25,7 @@ const RoomList: React.FC = () => {
       <div className="filters">
         <DatePicker />
         <div className="filter-group">
-          <label>Capacity:</label>
-          <select
-            value={capacityFilter || ""}
-            onChange={(e) =>
-              setCapacityFilter(e.target.value ? Number(e.target.value) : null)
-            }
-          >
-            <option value="">All</option>
-            <option value="2">2+</option>
-            <option value="5">5+</option>
-            <option value="10">10+</option>
-            <option value="15">15+</option>
-          </select>
-        </div>
-        <div className="filter-group">
-          <label>Amenity:</label>
+          <label>Room Type:</label>
           <select
             value={amenityFilter || ""}
             onChange={(e) => setAmenityFilter(e.target.value || null)}
@@ -71,7 +55,6 @@ const RoomList: React.FC = () => {
               </div>
               <div className="room-info">
                 <h3>{room.name}</h3>
-                <p>Capacity: {room.capacity} people</p>
                 <p className="amenities">
                   {room.amenities.slice(0, 2).join(", ")}
                   {room.amenities.length > 2 && "..."}

@@ -1,9 +1,28 @@
+:root {
+  /* Color Variables */
+  --color-primary: #e5e900;
+  --color-primary-dark: #525200;
+  --color-primary-light: #fcffe0;
+  --color-text: #333;
+  --color-text-light: #666;
+  --color-white: white;
+  --color-black: #000000;
+  --color-background: #f5f7fa;
+  --color-background-alt: #f8fafc;
+  --color-border: #ccc;
+  --color-border-light: #eee;
+  --color-border-lighter: #e2e8f0;
+  --color-error: #e53e3e;
+  --color-shadow: rgba(0, 0, 0, 0.1);
+  --color-shadow-hover: rgba(0, 0, 0, 0.15);
+}
+
 body {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   margin: 0;
   padding: 0;
-  background-color: #f5f7fa;
-  color: #333;
+  background-color: var(--color-background);
+  color: var(--color-text);
 }
 
 .app-container {
@@ -13,17 +32,17 @@ body {
 }
 
 .header {
-  background-color: #1a73e8;
-  color: white;
+  background-color: var(--color-primary);
+  color: var(--color-white);
   padding: 1rem 2rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 4px var(--color-shadow);
 }
 
 .logo a {
-  color: white;
+  color: var(--color-white);
   text-decoration: none;
   font-size: 1.5rem;
   font-weight: bold;
@@ -41,7 +60,7 @@ body {
 }
 
 .nav a {
-  color: white;
+  color: var(--color-white);
   text-decoration: none;
   padding: 0.5rem 0;
   border-bottom: 2px solid transparent;
@@ -49,7 +68,7 @@ body {
 }
 
 .nav a:hover {
-  border-bottom-color: white;
+  border-bottom-color: var(--color-white);
 }
 
 .user-info {
@@ -57,9 +76,9 @@ body {
 }
 
 button {
-  background-color: #1a73e8;
-  color: white;
-  border: 1px solid white;
+  background-color: var(--color-black);
+  color: var(--color-white);
+  border: 1px solid var(--color-white);
   padding: 0.5rem 1rem;
   border-radius: 4px;
   cursor: pointer;
@@ -68,7 +87,7 @@ button {
 }
 
 button:hover {
-  background-color: #1557b0;
+  background-color: var(--color-primary-dark);
 }
 
 .main-content {
@@ -108,8 +127,8 @@ button:hover {
 .date-picker select {
   padding: 0.5rem;
   border-radius: 4px;
-  border: 1px solid #ccc;
-  background-color: white;
+  border: 1px solid var(--color-border);
+  background-color: var(--color-white);
   min-width: 150px;
 }
 
@@ -120,22 +139,22 @@ button:hover {
 }
 
 .room-card {
-  background-color: white;
+  background-color: var(--color-white);
   border-radius: 8px;
   overflow: hidden;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 8px var(--color-shadow);
   transition: transform 0.3s, box-shadow 0.3s;
 }
 
 .room-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 5px 15px var(--color-shadow-hover);
 }
 
 .room-image,
 .placeholder-image {
   height: 150px;
-  background-color: #e0e7ff;
+  background-color: var(--color-primary-light);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -143,7 +162,7 @@ button:hover {
 
 .placeholder-image span {
   font-size: 3rem;
-  color: #3b82f6;
+  color: var(--color-primary);
   font-weight: bold;
 }
 
@@ -154,18 +173,18 @@ button:hover {
 .room-info h3 {
   margin-top: 0;
   margin-bottom: 0.5rem;
-  color: #1a73e8;
+  color: var(--color-primary);
 }
 
 .amenities {
-  color: #666;
+  color: var(--color-text-light);
   margin-bottom: 1rem;
 }
 
 .view-room-btn {
   display: inline-block;
-  background-color: #1a73e8;
-  color: white;
+  background-color: var(--color-primary);
+  color: var(--color-white);
   padding: 0.5rem 1rem;
   border-radius: 4px;
   text-decoration: none;
@@ -173,29 +192,29 @@ button:hover {
 }
 
 .view-room-btn:hover {
-  background-color: #1557b0;
+  background-color: var(--color-primary-dark);
 }
 
 .no-rooms {
   grid-column: 1 / -1;
   text-align: center;
   padding: 2rem;
-  background-color: white;
+  background-color: var(--color-white);
   border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 8px var(--color-shadow);
 }
 
 /* Room Detail */
 .room-detail {
-  background-color: white;
+  background-color: var(--color-white);
   border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 8px var(--color-shadow);
   padding: 2rem;
 }
 
 .back-btn {
   background-color: transparent;
-  color: #1a73e8;
+  color: var(--color-primary);
   border: none;
   padding: 0.5rem 0;
   margin-bottom: 1.5rem;
@@ -225,7 +244,7 @@ button:hover {
 .room-image-large,
 .placeholder-image-large {
   height: 300px;
-  background-color: #e0e7ff;
+  background-color: var(--color-primary-light);
   border-radius: 8px;
   overflow: hidden;
   display: flex;
@@ -235,13 +254,13 @@ button:hover {
 
 .placeholder-image-large span {
   font-size: 5rem;
-  color: #3b82f6;
+  color: var(--color-primary);
   font-weight: bold;
 }
 
 .room-info-detailed h1 {
   margin-top: 0;
-  color: #1a73e8;
+  color: var(--color-primary);
 }
 
 .capacity {
@@ -257,7 +276,7 @@ button:hover {
 
 .amenities-list li {
   padding: 0.5rem 0;
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid var(--color-border-light);
 }
 
 .amenities-list li:last-child {
@@ -265,16 +284,16 @@ button:hover {
 }
 
 .reservation-form {
-  background-color: #f8fafc;
+  background-color: var(--color-background-alt);
   padding: 1.5rem;
   border-radius: 8px;
-  border: 1px solid #e2e8f0;
+  border: 1px solid var(--color-border-lighter);
 }
 
 .reservation-form h2 {
   margin-top: 0;
   margin-bottom: 1.5rem;
-  color: #1a73e8;
+  color: var(--color-primary);
 }
 
 .form-group {
@@ -292,14 +311,14 @@ button:hover {
   width: 100%;
   padding: 0.75rem;
   border-radius: 4px;
-  border: 1px solid #ccc;
+  border: 1px solid var(--color-border);
   font-size: 1rem;
   box-sizing: border-box;
 }
 
 .no-slots,
 .error {
-  color: #e53e3e;
+  color: var(--color-error);
   margin-top: 0.5rem;
   font-size: 0.9rem;
 }
@@ -307,8 +326,8 @@ button:hover {
 .reserve-btn {
   width: 100%;
   padding: 0.75rem;
-  background-color: #1a73e8;
-  color: white;
+  background-color: var(--color-primary);
+  color: var(--color-white);
   border: none;
   border-radius: 4px;
   font-size: 1rem;
@@ -317,5 +336,5 @@ button:hover {
 }
 
 .reserve-btn:hover {
-  background-color: #111;
+  background-color: var(--color-black);
 }
