@@ -10,7 +10,7 @@ This application allows users to:
 - View detailed information about each room
 - Make new reservations with specific dates and times
 - Manage and cancel existing reservations
-- Filter rooms by capacity and amenities
+- Filter rooms by capacity and roomType
 
 ## Project Structure
 
@@ -75,7 +75,7 @@ import { MyReservations } from "./components/MyReservations";
 
 ### RoomDetail
 
-Detailed view of a selected conference room with reservation capabilities. Shows room information (name, capacity, amenities) and provides a form to book the room with:
+Detailed view of a selected conference room with reservation capabilities. Shows room information (name, capacity, roomType) and provides a form to book the room with:
 
 - Date selection
 - Time slot selection (filtered to available slots)
@@ -96,13 +96,13 @@ Displays a filterable grid of conference rooms. Users can filter rooms by:
 
 - Date (using the DatePicker component)
 - Capacity (2+, 5+, 10+, 15+ people)
-- Amenities (dynamically generated from available rooms)
+- Room type (dynamically generated from available rooms)
 
 ```tsx
 import { RoomList } from "./components/RoomList";
 
 // RoomList displays and filters rooms from AppContext
-// Filters by capacity and amenities
+// Filters by capacity and roomType
 <RoomList />;
 ```
 
@@ -117,7 +117,7 @@ interface Room {
   id: string;
   name: string;
   capacity: number;
-  amenities: string[];
+  roomType: string[];
   image?: string;
   availableTimes?: TimeSlot[];
 }
@@ -201,7 +201,7 @@ const MyComponent = () => {
 
 The application comes with mock data for development purposes in `mockData.ts`:
 
-- `mockRooms`: Array of 5 sample conference rooms with different capacities and amenities
+- `mockRooms`: Array of 5 sample conference rooms with different capacities and roomType
 - `mockUser`: Sample user with ID, name, and email
 - `mockReservations`: Sample reservations for the mock user
 - `generateTimeSlots()`: Helper function that creates time slots from 8:00 to 18:00 (8am-6pm)

@@ -66,9 +66,9 @@ const RoomDetail: React.FC = () => {
           <h1>{room.name}</h1>
 
           <h3>Room Type</h3>
-          <ul className="amenities-list">
-            {room.amenities.map((amenity) => (
-              <li key={amenity}>{amenity}</li>
+          <ul className="roomType-list">
+            {room.roomType.map((roomType) => (
+              <li key={roomType}>{roomType}</li>
             ))}
           </ul>
 

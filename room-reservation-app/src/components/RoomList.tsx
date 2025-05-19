@@ -6,16 +6,16 @@ import DatePicker from "./DatePicker";
 const RoomList: React.FC = () => {
   const { rooms, selectedDate } = useApp();
   const [capacityFilter, setCapacityFilter] = useState<number | null>(null);
-  const [amenityFilter, setAmenityFilter] = useState<string | null>(null);
+  const [roomTypeFilter, setRoomTypeFilter] = useState<string | null>(null);
 
-  // Get all unique amenities from rooms
-  const allAmenities = Array.from(
-    new Set(rooms.flatMap((room) => room.amenities))
+  // Get all unique roomType from rooms
+  const allRoomTypes = Array.from(
+    new Set(rooms.flatMap((room) => room.roomType))
   );
 
   // Filter rooms based on criteria
   const filteredRooms = rooms.filter((room) => {
-    if (amenityFilter && !room.amenities.includes(amenityFilter)) return false;
+    if (roomTypeFilter && !room.roomType.includes(roomTypeFilter)) return false;
     return true;
   });
 
@@ -27,13 +27,13 @@ const RoomList: React.FC = () => {
         <div className="filter-group">
           <label>Room Type:</label>
           <select
-            value={amenityFilter || ""}
-            onChange={(e) => setAmenityFilter(e.target.value || null)}
+            value={roomTypeFilter || ""}
+            onChange={(e) => setRoomTypeFilter(e.target.value || null)}
           >
             <option value="">All</option>
-            {allAmenities.map((amenity) => (
-              <option key={amenity} value={amenity}>
-                {amenity}
+            {allRoomTypes.map((roomType) => (
+              <option key={roomType} value={roomType}>
+                {roomType}
               </option>
             ))}
           </select>
@@ -55,9 +55,9 @@ const RoomList: React.FC = () => {
               </div>
               <div className="room-info">
                 <h3>{room.name}</h3>
-                <p className="amenities">
-                  {room.amenities.slice(0, 2).join(", ")}
-                  {room.amenities.length > 2 && "..."}
+                <p className="roomType">
+                  {room.roomType.slice(0, 2).join(", ")}
+                  {room.roomType.length > 2 && "..."}
                 </p>
                 <Link to={`/room/${room.id}`} className="view-room-btn">
                   View Details

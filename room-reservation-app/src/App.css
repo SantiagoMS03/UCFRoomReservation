@@ -176,7 +176,7 @@ button:hover {
   color: var(--color-primary);
 }
 
-.amenities {
+.roomType {
   color: var(--color-text-light);
   margin-bottom: 1rem;
 }
@@ -268,18 +268,18 @@ button:hover {
   margin-bottom: 1.5rem;
 }
 
-.amenities-list {
+.roomType-list {
   list-style: none;
   padding: 0;
   margin-bottom: 2rem;
 }
 
-.amenities-list li {
+.roomType-list li {
   padding: 0.5rem 0;
   border-bottom: 1px solid var(--color-border-light);
 }
 
-.amenities-list li:last-child {
+.roomType-list li:last-child {
   border-bottom: none;
 }
 

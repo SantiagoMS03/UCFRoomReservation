@@ -1,7 +1,7 @@
 export interface Room {
   id: string;
   name: string;
-  amenities: string[];
+  roomType: string[];
   image?: string;
   availableTimes?: TimeSlot[];
 }

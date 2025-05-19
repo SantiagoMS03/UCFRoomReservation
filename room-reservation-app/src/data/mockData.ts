@@ -20,37 +20,37 @@ export const mockRooms: Room[] = [
   {
     id: "room-1",
     name: "M240",
-    amenities: ["Grand Piano"],
+    roomType: ["Grand Piano"],
     availableTimes: generateTimeSlots(),
   },
   {
     id: "room-2",
     name: "M244",
-    amenities: ["Grand Piano"],
+    roomType: ["Grand Piano"],
     availableTimes: generateTimeSlots(),
   },
   {
     id: "room-3",
     name: "M245",
-    amenities: ["Upright Piano"],
+    roomType: ["Upright Piano"],
     availableTimes: generateTimeSlots(),
   },
   {
     id: "room-4",
     name: "M246",
-    amenities: ["Chamber Room"],
+    roomType: ["Chamber Room"],
     availableTimes: generateTimeSlots(),
   },
   {
     id: "room-5",
     name: "M245",
-    amenities: ["Composition Room"],
+    roomType: ["Composition Room"],
     availableTimes: generateTimeSlots(),
   },
   {
     id: "room-5",
     name: "M252",
-    amenities: ["Keyboard Room"],
+    roomType: ["Keyboard Room"],
     availableTimes: generateTimeSlots(),
   },
 ];
